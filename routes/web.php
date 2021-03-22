@@ -10,6 +10,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobSchedulingController;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\MaterialsPurchasedController;
+use App\Http\Controllers\MaterialUOMController;
 use App\Http\Controllers\MatRequestController;
 use App\Http\Controllers\PartsController;
 use App\Http\Controllers\ProductMonitoringController;
@@ -81,6 +82,14 @@ Route::get('/objectives', function() {
 });
 Route::get('/opportunities', function() {
     return view('modules.crm.opportunities');
+});
+
+/**DELIVERY ROUTES */
+Route::get('/delivery', function() {
+    return view('modules.productreleasing.delivery');
+});
+Route::get('/view-delivery-info', function() {
+    return view('modules.productreleasing.deliveryinfo');
 });
 
 /**HR ROUTES */
@@ -168,7 +177,7 @@ Route::get('/openManufacturingRoutingForm', function(){
 });
 
 /**MATERIAL REQUEST ROUTES */
-Route::get('/materialrequest', [MatRequestController::class, 'index']);
+Route::resource('/materialrequest', MatRequestController::class);
 Route::get('/openNewMaterialRequest', function(){
     return view('modules.buying.newMaterialRequest');
 });
@@ -190,6 +199,14 @@ Route::get('/archived', function() {
 /**PAYMENT ENTRY ROUTES*/
 Route::get('/paymententry', function() {
     return view('modules.accounting.paymententry');
+});
+
+/**PENDING ORDERS ROUTES */
+Route::get('/pendingorders', function() {
+    return view('modules.buying.pendingorders');
+});
+Route::get('/view-pending-order', function() {
+    return view('modules.buying.pendingordersinfo');
 });
 
 /**PRICE LIST ROUTES */
@@ -259,16 +276,24 @@ Route::get('/openReportsBuilderForm', function() {
     return view('modules.reports.reportsbuilderform');
 }); 
 
+/**REQUEST FOR QUOTATION ROUTES */
+Route::get('/requestforquotation', function() {
+    return view('modules.buying.requestforquotation');
+});
+Route::get('/new-quotation', function() {
+    return view('modules.buying.requestforquotationform');
+});
+Route::get('/view-quotation', function() {
+    return view('modules.buying.requestforquotationinfo');
+});
+
 /**RETAIL ROUTES */
 Route::get('/retail', function() {
     return view('modules.retail.retail');
 });
 
 /**SALES ORDER ROUTES */
-Route::get('/openSaleInfo', function() {
-    return view('modules.selling.saleInfo');
-});
-
+Route::get('/view-sales-order/{id}', [SalesOrderController::class, 'get']);
 Route::get('/salesorder',[SalesOrderController::class, 'index']);
 Route::post('/createsalesorder',[SalesOrderController::class, 'create']);
 Route::get('/openNewSaleOrder', function() {
@@ -280,6 +305,9 @@ Route::get('/getComponents/{selected}',[SalesOrderController::class, 'getCompone
 /**SALES INVOICE ROUTES */
 Route::get('/salesinvoice', function() {
     return view('modules.selling.salesinvoice');
+});
+Route::get('/sales-invoice-item', function() {
+    return view('modules.selling.salesinvoiceitem');
 });
 
 /**SELLING ROUTES */
@@ -307,6 +335,9 @@ Route::get('/supplier', function() {
 Route::get('/openSupplierInfo', function() {
     return view('modules.buying.supplierInfo');
 });
+Route::get('/createnewsupplier', function() {
+    return view('modules.buying.createnewsupplier');
+});
 
 /**TASK ROUTES */
 Route::get('/openNewTask', function() {
@@ -324,9 +355,8 @@ Route::get('/openManufacturingTimesheetForm', function(){
 });
 
 /**UOM ROUTES */
-Route::get('/loadUOM', function() {
-    return view('modules.stock.UOM');
-});
+Route::get('/uom', [MaterialUOMController::class, 'index']);
+Route::post('/create-mat-uom', [MaterialUOMController::class, 'store']);
 Route::get('/openUOMNew', function() {
     return view('modules.stock.UOMNEW');
 });
