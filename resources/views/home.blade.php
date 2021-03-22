@@ -141,6 +141,11 @@
             </div>
             <div id='submenuManufacturing' class="collapse sidebar-submenu">
                 <a href="#" id="inbox-toggle" data-parent="manufacturing" class="menu list-group-item list-group-item-action bg-secondary">
+                    <span class="menu-collapsed align-middle">Component</span>
+                </a>
+            </div>
+            <div id='submenuManufacturing' class="collapse sidebar-submenu">
+                <a href="#" id="inbox-toggle" data-parent="manufacturing" class="menu list-group-item list-group-item-action bg-secondary">
                     <span class="menu-collapsed align-middle">Item Attribute</span>
                 </a>
             </div>

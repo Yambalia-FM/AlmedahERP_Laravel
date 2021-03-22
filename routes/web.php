@@ -114,6 +114,12 @@ Route::post('/delete-material/{id}', [MaterialsController::class, 'delete']);
 Route::post('/create-categories' , [MaterialsController::class, 'storeCategory']);
 Route::post('/add-stock/{id}', [MaterialsController::class,'addStock'])->name('material.add-stock');
 
+/**COMPONENTS ROUTES */
+Route::get('/component', function() {
+    return view('modules.manufacturing.component');
+});
+
+
 /**ITEM ROUTES */
 Route::get('/item',[ProductsController::class, 'index']);
 Route::patch('/create-product', [ProductsController::class, 'store']);

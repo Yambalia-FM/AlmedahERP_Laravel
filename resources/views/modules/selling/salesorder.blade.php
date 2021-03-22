@@ -278,14 +278,7 @@
                                             <label class=" text-nowrap align-middle">
                                                 Product Code
                                             </label>
-                                            <select class="form-control" id="saleProductCode" name="saleProductCode">
-                                                <option value="none" selected disabled hidden> 
-                                                    Select an Option 
-                                                </option>
-                                                @foreach ($products as $row)
-                                                    <option value="{{$row->product_code}}">{{$row->product_code}}</option>
-                                                @endforeach
-                                            </select>
+                                            <input type="text" class="form-input form-control" id="saleProductCode" name="saleProductCode" >
                                             <br>
                                         </div>
                                     </div>
@@ -384,11 +377,6 @@
                                         <br>
                                     </div>
                                     <div class="col">
-                                        <label class="text-nowrap align-middle">
-                                            Sale Currency
-                                        </label>
-                                        <input type="text" class="form-input form-control sellable" max="20" id="saleCurrency" name="saleCurrency">
-                                        <br>
                                         <label class=" text-nowrap align-middle">
                                             Sales Supply Method
                                         </label>
@@ -401,6 +389,7 @@
                                         <br>
                                     </div>
                                 </div>
+                                
                                 <div class="row">
                                     <div class="col">
                                         <label>
@@ -653,13 +642,67 @@
                         </div>
                         <div class="row">
                           <div class="col-12 d-flex justify-content-center">
-                            <select class="form-control sellable" id="paymentType" name="paymentType" onchange="selectPaymentType();">
+                            <select class="form-control sellable" id="paymentType" name="paymentType" onchange="selectPaymentType(this);">
                                 <option selected disabled>Please Select Payment Type...</option>
                                 <option value="Cash">Cash</option>
                                 <option value="Cheque">Cheque</option>
                             </select>
                           </div>
                         </div>
+                        <!-- CASH FORM -->
+                        <div class="row mt-2 mb-2" style="display:none" id="cashForm">
+                          <div class="col mt-2 mb-2">
+                            <label class=" text-nowrap align-middle">
+                                Transaction Handler
+                            </label>
+                            <input type="text" class="form-input form-control" id="salesCashHandler" name="salesCashHandler" >
+                          </div>
+                          <div class="col mt-2 mb-2">
+                            <label class=" text-nowrap align-middle">
+                                Amount Paid
+                            </label>
+                            <input type="number" class="form-input form-control" id="salesCashAmountPaid" name="salesCashAmountPaid" >
+                          </div>
+                        </div>
+                        <!-- END OF CASH FORM -->
+                        <!-- CHEQUE FROM -->
+                        <div class="row mt-2 mb-2" style="display:none" id="chequeForm">
+                          <div class="col mt-2 mb-2">
+                            <label class="text-nowrap align-middle">
+                                Date
+                            </label>
+                            <input class="form-control" type="date" value="2021-01-01" id="saleChequeDate" name="saleChequeDate">
+                            <label class=" text-nowrap align-middle">
+                              Transaction Handler
+                            </label>
+                            <input type="text" class="form-input form-control" id="salesChequeHandler" name="salesChequeHandler" >
+                          </div>
+                          <div class="col mt-2 mb-2">
+                            <label class=" text-nowrap align-middle">
+                                Account Number
+                            </label>
+                            <input type="number" class="form-input form-control" id="salesAccountNumber" name="salesAccountNumber" >
+                            <label class=" text-nowrap align-middle">
+                                Amount Paid
+                            </label>
+                            <input type="number" class="form-input form-control" id="salesChequeAmountPaid" name="salesChequeAmountPaid" >
+                          </div>
+                        </div>
+                        <!-- END CHEQUE FROM -->
+                        <script>
+                          function selectPaymentType(select){
+                            if(select.value== "Cash"){
+                              document.getElementById('cashForm').style.display = "";
+                            } else {
+                              document.getElementById('cashForm').style.display = "none";
+                            }
+                            if(select.value== "Cheque"){
+                              document.getElementById('chequeForm').style.display = "";
+                            } else {
+                              document.getElementById('chequeForm').style.display = "none";
+                            }
+                          }
+                        </script>
                         <div class="row">
                           <div class="col-12 d-flex justify-content-center">
                             <button type="button" class="btn btn-primary m-1" data-dismiss="modal" data-target="#newSalePrompt" data-name="Work Order" data-parent="manufacturing">
