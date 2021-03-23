@@ -656,6 +656,12 @@
                                 Transaction Handler
                             </label>
                             <input type="text" class="form-input form-control" id="salesCashHandler" name="salesCashHandler" >
+                            <br>
+                            <label class="text-nowrap align-middle">
+                                Date
+                            </label>
+                            <input class="form-control" type="date" value="2021-01-01" id="saleCashDate" name="saleCashDate">
+                            <br>
                           </div>
                           <div class="col mt-2 mb-2">
                             <label class=" text-nowrap align-middle">
@@ -672,6 +678,7 @@
                                 Date
                             </label>
                             <input class="form-control" type="date" value="2021-01-01" id="saleChequeDate" name="saleChequeDate">
+                            <br>
                             <label class=" text-nowrap align-middle">
                               Transaction Handler
                             </label>
@@ -682,6 +689,7 @@
                                 Account Number
                             </label>
                             <input type="number" class="form-input form-control" id="salesAccountNumber" name="salesAccountNumber" >
+                            <br>
                             <label class=" text-nowrap align-middle">
                                 Amount Paid
                             </label>
