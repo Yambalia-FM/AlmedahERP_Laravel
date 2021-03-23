@@ -90,68 +90,27 @@
         <hr>
         <div>
             <div class="col-12">
-                <table id='tbl-buying-purchaseorder' class="table table-sm table-hover w-100">
+                <table id="purchaseOrderTable" class="table table-striped table-bordered hover" style="width:100%">
                     <thead>
                         <tr>
-                            <th scope="col">Title</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Grand Total</th>
-                            <th scope="col">% Received</th>
-                            <th scope="col">% Billed</th>
+                            <th>ID</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Grand Total</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                    </tbody>
                 </table>
             </div>
         </div>
 
     </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var modalCrmLeadsForm = $("#modal-buying-purchaseorder-form");
+    <script>
+    $(document).ready(function () {
+        $('#purchaseOrderTable').DataTable();
+    });
 
-            var oTable = $('#tbl-buying-purchaseorder').DataTable({
-                sDom: 'rt',
-                ajax: "data/buying-purchaseorder.json", // test data only
-                columns: [{
-                        data: 'title'
-                    },
-                    {
-                        data: 'status'
-                    },
-                    {
-                        data: 'date'
-                    },
-                    {
-                        data: 'grand_total'
-                    },
-                    {
-                        data: '%_received'
-                    },
-                    {
-                        data: '%_billed'
-                    }
-                ]
-            });
 
-            $(document).on('click', '#btn-buying-purchaseorder-add', function(e) {
-                e.preventDefault();
-                modalCrmLeadsForm.modal('show');
-            });
-
-            $(document).on('click', '.close-modal-buying-purchaseorder-form', function() {
-                modalCrmLeadsForm.modal('hide');
-            });
-
-            // custom datatables commands
-            $(document).on('keyup', '#buying-purchaseorder-filter-input', function() {
-                oTable.search($(this).val()).draw();
-            });
-            $(document).on('click', '#btn-buying-purchaseorder-pagination-previous', function() {
-                oTable.page('previous').draw('page');
-            });
-            $(document).on('click', '#btn-buying-purchaseorder-pagination-next', function() {
-                oTable.page('next').draw('page');
-            });
-        });
+</script>
+   
