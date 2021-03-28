@@ -459,3 +459,39 @@ function openNewSupplierQuotation() {
     $('#contentSupplierQuotation').load('modules/buying/new_supplier_quotation.php')
   });
 }
+
+function openNewPurchaseInvoice(){
+  $(document).ready(function () {
+    $('#contentPurchaseInvoice').load('modules/buying/newPurchaseInvoice.php')
+  });
+}
+
+function loadPurchaseInvoice(){
+  $(document).ready(function () {
+    $('#contentPurchaseInvoice').load('modules/buying/purchaseInvoice.php')
+  });
+}
+
+function openPurchaseInvoiceInfo(){
+  $(document).ready(function () {
+    $('#contentPurchaseInvoice').load('modules/buying/purchaseInvoiceInfo.php')
+  });
+}
+
+function openNewPurchaseReceipt(){
+  $(document).ready(function () {
+    $('#contentPurchaseReceipt').load('modules/buying/newPurchaseReceipt.php')
+  });
+}
+
+function openPurchaseReceiptInfo(){
+  $(document).ready(function () {
+    $('#contentPurchaseReceipt').load('modules/buying/PurchaseReceiptInfo.php')
+  });
+}
+
+function loadPurchaseReceipt(){
+  $(document).ready(function () {
+    $('#contentPurchaseReceipt').load('modules/buying/PurchaseReceipt.php')
+  });
+}
