@@ -29,8 +29,8 @@
         </button>
        
          <div class="dropdown-menu" aria-labelledby="dropdownMenunpi">
-           <a class="dropdown-item" href="#">Purchase Order</a>
-           <a class="dropdown-item" href="#">Purchase Receipt</a>
+           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#npi_purchaseOrderModal">Purchase Order</a>
+           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#npi_purchaseReceiptModal">Purchase Receipt</a>
          </div>
       </h2>
     </div>
@@ -400,13 +400,22 @@
       <div id="salesOrderCard8" class="collapse">
       <div class="card-body">
         <div class="row">
-          <div class="col">
             <div class="col-6 form-group">
                 <label class=" text-nowrap align-middle">
                     Payment Terms Template
                 </label>
                 <input type="text" required class="form-input form-control" id="">
                 <br>
+            </div>
+            <div class="col-6 form-group">
+              <label class=" text-nowrap align-middle">
+                  Mode of Payment
+              </label>
+              <select id="" class="form-control">
+                <option selected>Cash</option>
+                <option>Cheque</option>
+              </select>
+              <br>
             </div>
             <label class=" text-nowrap align-middle">Payment Schedule</label>
             <table class="table border-bottom table-hover table-bordered">
@@ -439,7 +448,7 @@
               </tbody>
             </table>
         </div>
-          </div>
+      </div>
         </div>
       </div>
   </div>
@@ -499,3 +508,117 @@
 </div>
 
 <script src="./js/salesorder.js"></script>
+
+<!-- Modal Purchase Order-->
+<div class="modal fade" id="npi_purchaseOrderModal" tabindex="-1" role="dialog" aria-labelledby="npi_purchaseOrderModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Purchase Orders</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <table id="purchaseReceiptTable" class="table table-striped table-bordered hover" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>Purchase ID</th>
+                      <th>Date</th>
+                      <th>Item List</th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody>
+      
+                  <tr>
+                      <td class= "text-bold">PID-001</td>
+                      <td>3/31/2021</td>
+                      <td class="text-bold text-center"><button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#npr_itemListView">View</button></td>
+                      <td class="text-bold text-center"><button type="button" class="btn-sm btn-primary" data-dismiss="modal">Select</button></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Purchase Receipt-->
+<div class="modal fade" id="npi_purchaseReceiptModal" tabindex="-1" role="dialog" aria-labelledby="npi_purchaseReceiptModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Purchase Receipt</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <table id="purchaseReceiptTable" class="table table-striped table-bordered hover" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>Purchase Receipt ID</th>
+                      <th>Date Created</th>
+                      <th>Purchase ID</th>
+                      <th>Item List Received</th>
+                      <th>Grand Total(PHP)</th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody>
+      
+                  <tr>
+                      <td class= "text-bold">PR-001</td>
+                      <td>3/31/2021</td>
+                      <td>PID-001</td>
+                      <td class="text-bold text-center"><button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#npi_itemListView">View</button></td>
+                      <td>P10,000</td>
+                      <td class="text-bold text-center"><button type="button" class="btn-sm btn-primary" data-dismiss="modal">Select</button></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal itemlist-->
+<div class="modal fade" id="npi_itemListView" tabindex="-1" role="dialog" aria-labelledby="npi_itemListView" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Item List</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <table id="purchaseReceiptTable" class="table table-striped table-bordered hover" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>Item ID</th>
+                      <th>Quantity Received</th>
+                  </tr>
+              </thead>
+              <tbody>
+      
+                  <tr>
+                      <td class= "text-bold">4</td>
+                      <td>100</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

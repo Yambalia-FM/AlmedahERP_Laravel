@@ -51,7 +51,7 @@
             <tr>
                 <td class= "text-bold">PR-123</td>
                 <td>March/28/2021</td>
-                <td>text-center</td>
+                <td>PID-001</td>
                 <td class="text-bold text-center"><button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#pr_itemListView">View</button></td>
                 <td class="text-bold">100</td>
                 <td>Draft</td>
@@ -71,7 +71,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Item List</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
